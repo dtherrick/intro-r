@@ -1,0 +1,67 @@
+---
+title: "R-Overview2"
+output: pdf_document
+---
+***
+**Damian Herrick**
+
+**Thinkful Mentor**
+
+## What is R?
+
+  > R is a free software environment for statistical computing and graphics.
+  > It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.
+  
+  - From R's [home page](http://r-project.org):
+
+- R itself has several components - not unlike Python, which many of you are familiar with.
+- __Base R__ is the foundational component of the environment.
+  * If we _only_ install this, we could:
+    * Load data
+    * Conduct some statistical analyses - including regression.
+    * Save our results.
+  * We couldn't:
+    * Connect to databases or APIs.
+    * Conduct more in-depth analyses.
+    * Create publication-ready plots.
+    * ...and much more.
+- We extend R with __packages__ that we can install from inside the R environment.
+  * Most packages live on [CRAN](http://cran.r-project.org)
+  * As of this writing there are 7,649 packages.
+  * They're installed by invoking `install.packages("<package_name")`
+  * They're made available inside an R session using `library(<package_name>)`
+- R works much better with an IDE that allows scripting, displays outputs - including plots.
+- The preferred IDE is __RStudio__
+  * It's an open-source IDE that makes R development __MUCH__ easier.
+  
+
+***
+
+## Where can I get R?
+
+* For the work we'll do tonight, we need to install both base R and RStudio:
+  * Base R lives at [http://r-project.org](http://r-project.org)
+    * At the top of the page, select the OS where you'll install R. Precompiled binaries are available for Windows, OS X, and various flavors of Linux.
+    * The current version is __R 3.2.3 "Wooden Christmas Tree"__ and was released on 10-December-2015.
+    * It's wise to keep your R installation up to date.
+  * RStudio lives at [RStudio's](http://rstudio.com) site.
+    * Select Products > RStudio > Desktop, or simply click this [link](https://www.rstudio.com/products/rstudio/#Desktop) and download the open source edition.
+  * Any additional packages we need, we can install as needed.
+
+***
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
