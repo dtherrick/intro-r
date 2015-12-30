@@ -22,3 +22,21 @@ ggpairs(loansNumeric)
 
 fit <- lm(Interest.Rate.Dec ~ FICO.Range.Min + Amount.Requested, data=loansDataClean)
 summary(fit)
+
+library(broom)
+
+tidy(fit)
+
+loansDataClean$Estimate.10K <- tidy(fit)$estimate[1] + tidy(fit)$estimate[2] * loansDataClean$FICO.Range.Min + tidy(fit)$estimate[3] * 10000
+
+loansDataClean$Estimate.30K <- tidy(fit)$estimate[1] + tidy(fit)$estimate[2] * loansDataClean$FICO.Range.Min + tidy(fit)$estimate[3] * 30000
+
+ggplot(loansDataClean, aes(x=FICO.Range.Min, y=Interest.Rate.Dec)) + geom_point(shape=16, color='blue') + geom_line(y=Estimate.10K, color='red') + geom_line(y=Estimate.30K, color='green')
+
+ggplot(loansDataClean, aes(sample=Amount.Requested))+stat_qq()
+
+ggplot(loansDataClean, aes(sample=Amount.Funded.By.Investors))+stat_qq()
+
+ggplot(loansDataClean, aes(Amount.Requested)) + geom_histogram(binwidth=5000)
+ggplot(loansDataClean, aes(Amount.Funded.By.Investors)) + geom_histogram(binwidth=5000)
+
